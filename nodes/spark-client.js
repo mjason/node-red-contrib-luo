@@ -5,7 +5,7 @@ module.exports = function(RED) {
     this.sparkConfig = RED.nodes.getNode(config.sparkConfig);
 
     this.on('input', async (msg, send, done) => {
-      const { SparkClient, messagesBuilder } = await import('luo_sdk');
+      const { SparkClient } = await import('luo_sdk');
 
       if (!this.sparkConfig || !this.sparkConfig.accessToken) {
         this.status({ fill: 'red', shape: 'dot', text: '没有设置token' });
@@ -23,7 +23,6 @@ module.exports = function(RED) {
       const messages = msg.payload?.messages ?? [];
 
       const streamCallback = async (chunk, content) => {
-        console.log(chunk);
         send([null, { payload: { chunk, content } }]);
       }
 
