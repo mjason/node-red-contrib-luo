@@ -1,0 +1,49 @@
+<script type="text/javascript">
+  RED.nodes.registerType('spark-client', {
+    category: 'function',
+    color: '#FFAAAA',
+    defaults: {
+      name: { value: "" },
+      sparkConfig: { value: "", type: "spark-config", required: true },
+      temperature: { value: 0, required: true, validate: RED.validators.number() },
+      stream: { value: false },
+      max_tokens: { value: 1024, required: true, validate: RED.validators.number() },
+    },
+    inputs: 1,
+    outputs: 2,
+    label: function() {
+      return this.name || '请求星火';
+    },
+    icon: 'function.svg',
+    paletteLabel: '请求星火',
+  });
+</script>
+
+<script type="text/html" data-template-name="spark-client">
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name">
+    <br>
+    <label for="node-input-sparkConfig"><i class="fa fa-cogs"></i> 星火配置</label>
+    <input type="text" id="node-input-sparkConfig" placeholder="星火配置">
+    <br>
+    <label for="node-input-temperature"><i class="fa fa-thermometer-empty"></i> Temperature</label>
+    <input type="text" id="node-input-temperature" placeholder="Temperature">
+    <br>
+    <label for="node-input-stream"><i class="fa fa-play-circle"></i> Stream</label>
+    <input type="checkbox" id="node-input-stream" placeholder="Stream">
+    <br>
+    <label for="node-input-max_tokens"><i class="fa fa-compass"></i> Max Tokens</label>
+    <input type="number" id="node-input-max_tokens" placeholder="Max Tokens" min="1" max="4096">
+  </div>
+</script>
+
+<script type="text/html" data-help-name="spark-client">
+  <h2>星火客户端，用户大模型请求</h2>
+  <div>
+    <ul>
+      <li>1: 最终结果输出</li>
+      <li>2: 流式返回输出，仅在stream设置为 true 有效</li>
+    </ul>
+  </div>
+</script>

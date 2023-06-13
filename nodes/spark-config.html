@@ -1,0 +1,26 @@
+<script type="text/javascript">
+  RED.nodes.registerType('spark-config',{
+    category: 'config',
+    defaults: {
+      name: { value: '' },
+      accessToken: { value: '', required:true},
+    },
+    label: function() {
+      return this.name || '星火配置';
+    },
+    color: "#E2D96E",
+    icon: 'font-awesome/fa-wrench',
+    paletteLabel: '星火配置'
+  });
+</script>
+
+<script type="text/html" data-template-name="spark-config">
+  <div class="form-row">
+    <label for="node-config-input-name"><i class="fa fa-bookmark"></i> Name</label>
+    <input type="text" id="node-config-input-name">
+  </div>
+  <div class="form-row">
+    <label for="node-config-input-accessToken"><i class="fa fa-bookmark"></i> Token</label>
+    <input type="text" id="node-config-input-accessToken">
+  </div>
+</script>
