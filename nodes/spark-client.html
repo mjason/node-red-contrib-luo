@@ -13,10 +13,10 @@
     outputs: 2,
     outputLabels: ["最终结果", "流式输出"],
     label: function() {
-      return this.name || '请求星火';
+      return this.name || '星火通用';
     },
     icon: 'function.svg',
-    paletteLabel: '请求星火',
+    paletteLabel: '星火通用',
   });
 </script>
 
@@ -40,7 +40,8 @@
 </script>
 
 <script type="text/html" data-help-name="spark-client">
-  <h2>星火客户端，用户大模型请求</h2>
+  <h2>星火通用大模型</h2>
+  <p>请求星火通用大模型，输入 messages 需要存放到 msg.payload</p>
   <div>
     <ul>
       <li>1: 最终结果输出</li>
