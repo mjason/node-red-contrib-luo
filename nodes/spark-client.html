@@ -1,6 +1,6 @@
 <script type="text/javascript">
   RED.nodes.registerType('spark-client', {
-    category: 'function',
+    category: '星火大模型',
     color: '#FFAAAA',
     defaults: {
       name: { value: "" },
@@ -13,10 +13,10 @@
     outputs: 2,
     outputLabels: ["最终结果", "流式输出"],
     label: function() {
-      return this.name || '星火通用';
+      return this.name || '通用模型';
     },
     icon: 'function.svg',
-    paletteLabel: '星火通用',
+    paletteLabel: '通用模型',
   });
 </script>
 
