@@ -1,0 +1,38 @@
+<script type="text/javascript">
+  RED.nodes.registerType('spark-embedding', {
+    category: '星火大模型',
+    color: '#FFAAAA',
+    defaults: {
+      name: { value: "" },
+      sparkConfig: { value: "", type: "spark-config", required: true },
+    },
+    inputs: 1,
+    outputs: 1,
+    outputLabels: ["最终结果"],
+    label: function() {
+      return this.name || 'Embedding';
+    },
+    icon: 'function.svg',
+    paletteLabel: 'Embedding',
+  });
+</script>
+
+<script type="text/html" data-template-name="spark-embedding">
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name">
+    <br>
+    <label for="node-input-sparkConfig"><i class="fa fa-cogs"></i> 星火配置</label>
+    <input type="text" id="node-input-sparkConfig" placeholder="星火配置">
+  </div>
+</script>
+
+<script type="text/html" data-help-name="spark-embedding">
+  <h2>向量计算调用</h2>
+  <p>请求embedding接口，输入 input 需要存放到 msg.payload</p>
+  <code>msg.payload.input = "你要计算的文字"</code>
+  <p>
+    请求使用的API 地址为：
+    <a href="https://docs2.listenai.com/x/HuWw7t2IW#向量计算调用">向量计算调用</a>
+  </p>
+</script>
